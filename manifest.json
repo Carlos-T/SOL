@@ -1,0 +1,35 @@
+{
+  "name": "Simulator Operation Loader",
+  "version": "1",
+  "manifest_version": 2,
+  "description": "Module loader for simulator",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "page_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Simulator Operation Loader",
+    "default_popup": "src/page_action/page_action.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://localhost:*/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ]
+}
