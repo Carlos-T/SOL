@@ -10,7 +10,7 @@ chrome.extension.sendMessage({}, function(response) {
         uc: ''
       }, function(options) {
         if (options.active) {
-          var scriptContent = "require('" + options.uc + "', function(Uc) {Uc.carga($('#' + simulador.CONSTANTES.ID_CONTENEDOR_PRINCIPAL));});";
+          var scriptContent = "setTimeout(function() {require(['" + options.uc + "'], function(Uc) {Uc.carga($('#' + simulador.CONSTANTES.ID_CONTENEDOR_PRINCIPAL));});}, 1200);";
 
           var script = document.createElement('script');
           script.id = 'ucLoader';
